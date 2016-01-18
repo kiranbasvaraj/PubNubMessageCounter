@@ -15,9 +15,7 @@ namespace PubNubCounter
     {
         const string SUBSCRIBE_KEY = "<subkeygoeshere>";
         const string UUID = "<UUIDGoesHere>";
-        long TotalMessageCounter = 0;
-        long TotalParentSectionMessageCounter = 0;
-        long TotalParent2ParentMessageCounter = 0;
+       
         protected void Page_Load(object sender, EventArgs e)
         {
 
