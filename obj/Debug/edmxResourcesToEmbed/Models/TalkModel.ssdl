@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TalkativeParentsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AdminId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar(max)" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="IsNotification" Type="bit" />
+    <Property Name="IsMessage" Type="bit" />
+    <Property Name="DateTimeSent" Type="datetime" />
+    <Property Name="Attachments" Type="nvarchar(max)" />
+    <Property Name="ShouldDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="AppRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsSchoolRole" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Salutation" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="IsSchoolUser" Type="bit" />
+    <Property Name="IsDisabled" Type="bit" />
+    <Property Name="IsFlagged" Type="bit" />
+    <Property Name="IsActivated" Type="bit" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="SchoolId" Type="uniqueidentifier" />
+    <Property Name="FirstLogin" Type="datetime" />
+    <Property Name="LastLogin" Type="datetime" />
+    <Property Name="PreviousLogin" Type="datetime" />
+    <Property Name="Gender" Type="int" />
+    <Property Name="AdminNoticeBoardId" Type="nvarchar" MaxLength="150" />
+    <Property Name="IsProfilePicUploaded" Type="bit" />
+  </EntityType>
+  <EntityType Name="Channel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ChannelType" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="UnreadCount" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="DeactivatedOn" Type="datetime" />
+    <Property Name="MessageCount" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Child">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ParentId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="150" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Picture" Type="nvarchar" MaxLength="150" />
+    <Property Name="IsVerified" Type="bit" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="RelationId" Type="int" />
+    <Property Name="ChildRelation" Type="int" />
+    <Property Name="ChildGenderId" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="ChildGenderLookup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ChildSection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ChildId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SectionId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsVerified" Type="nchar" MaxLength="10" />
+    <Property Name="ActivatedOn" Type="datetime" />
+    <Property Name="DeactivatedOn" Type="datetime" />
+    <Property Name="ParentTag" Type="nvarchar" MaxLength="500" />
+    <Property Name="ParentChildTag" Type="nvarchar" MaxLength="500" />
+    <Property Name="ParentToParent" Type="nvarchar" MaxLength="100" />
+    <Property Name="SchoolToEntireSchool" Type="nvarchar" MaxLength="100" />
+    <Property Name="SchoolToStandard" Type="nvarchar" MaxLength="100" />
+    <Property Name="SchoolToSection" Type="nvarchar" MaxLength="100" />
+    <Property Name="SchoolToParent" Type="nvarchar" MaxLength="100" />
+    <Property Name="AdminToStandard" Type="nvarchar" MaxLength="100" />
+    <Property Name="AdminToSchool" Type="nvarchar" MaxLength="100" />
+    <Property Name="AdminToCity" Type="nvarchar" MaxLength="100" />
+    <Property Name="AdminToState" Type="nvarchar" MaxLength="100" />
+    <Property Name="AdminToCountry" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Prefix" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="GenderLookup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OtherUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserChatId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OtherUserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PeerChat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserId1" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserId2" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ChatName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="EndedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RelationLookup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="GroupId" Type="uniqueidentifier" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="WebSite" Type="nvarchar" MaxLength="500" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="PrimaryPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="SecondaryPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrincipalName" Type="nvarchar" MaxLength="150" />
+    <Property Name="StartingGrade" Type="int" />
+    <Property Name="EndingGrade" Type="int" />
+    <Property Name="SchoolEndMonth" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="HasSections" Type="bit" />
+  </EntityType>
+  <EntityType Name="SchoolGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="CityId" Type="nvarchar" MaxLength="128" />
+    <Property Name="GroupId" Type="nvarchar" MaxLength="128" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="WebSite" Type="nvarchar" MaxLength="500" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="PrimaryPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="SecondaryPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SchoolMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SchoolUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SchoolId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar(max)" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="IsEntireSchool" Type="bit" />
+    <Property Name="IsParticularClass" Type="bit" />
+    <Property Name="IsParticularSection" Type="bit" />
+    <Property Name="Classes" Type="nvarchar(max)" />
+    <Property Name="Sections" Type="nvarchar(max)" />
+    <Property Name="DateTimeSent" Type="datetime" />
+    <Property Name="Attachments" Type="nvarchar(max)" />
+    <Property Name="ShouldDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="ClassTeacherId" Type="nvarchar" MaxLength="128" />
+    <Property Name="StandardId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="SectionLookup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Standard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="SchoolId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="StandardLookup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ShowSequence" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TTL" Type="datetime" Nullable="false" />
+    <Property Name="IPAddress" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="DeactivatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserChat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedOn" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_AdminMessage_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="AdminMessage" Type="Self.AdminMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdminMessage">
+        <PropertyRef Name="AdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUser_AppRole">
+    <End Role="AppRole" Type="Self.AppRole" Multiplicity="1" />
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppUser">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUser_GenderLookup">
+    <End Role="GenderLookup" Type="Self.GenderLookup" Multiplicity="0..1" />
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenderLookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppUser">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Channel_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="Channel" Type="Self.Channel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Channel">
+        <PropertyRef Name="AppUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_ChildGenderLookup">
+    <End Role="ChildGenderLookup" Type="Self.ChildGenderLookup" Multiplicity="0..1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChildGenderLookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="ChildGenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_Relation1">
+    <End Role="RelationLookup" Type="Self.RelationLookup" Multiplicity="0..1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RelationLookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="RelationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildSection_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="1" />
+    <End Role="ChildSection" Type="Self.ChildSection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChildSection">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildSection_Section">
+    <End Role="Section" Type="Self.Section" Multiplicity="1" />
+    <End Role="ChildSection" Type="Self.ChildSection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChildSection">
+        <PropertyRef Name="SectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OtherUsers_UserChat">
+    <End Role="UserChat" Type="Self.UserChat" Multiplicity="1" />
+    <End Role="OtherUsers" Type="Self.OtherUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserChat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OtherUsers">
+        <PropertyRef Name="UserChatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_School_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="School" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_School_StandardLookup">
+    <End Role="StandardLookup" Type="Self.StandardLookup" Multiplicity="0..1" />
+    <End Role="School" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StandardLookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="StartingGrade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_School_StandardLookup1">
+    <End Role="StandardLookup" Type="Self.StandardLookup" Multiplicity="0..1" />
+    <End Role="School" Type="Self.School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StandardLookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="EndingGrade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SchoolMessage_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="SchoolMessage" Type="Self.SchoolMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SchoolMessage">
+        <PropertyRef Name="SchoolUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SchoolMessage_School">
+    <End Role="School" Type="Self.School" Multiplicity="1" />
+    <End Role="SchoolMessage" Type="Self.SchoolMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SchoolMessage">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Section_Standard">
+    <End Role="Standard" Type="Self.Standard" Multiplicity="0..1" />
+    <End Role="Section" Type="Self.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Standard">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="StandardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Standard_School">
+    <End Role="School" Type="Self.School" Multiplicity="0..1" />
+    <End Role="Standard" Type="Self.Standard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Standard">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Token_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="Token" Type="Self.Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="AppUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserChat_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="UserChat" Type="Self.UserChat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserChat">
+        <PropertyRef Name="AppUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TalkativeParentsModelStoreContainer">
+    <EntitySet Name="AdminMessage" EntityType="Self.AdminMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppRole" EntityType="Self.AppRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUser" EntityType="Self.AppUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Channel" EntityType="Self.Channel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChildGenderLookup" EntityType="Self.ChildGenderLookup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChildSection" EntityType="Self.ChildSection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenderLookup" EntityType="Self.GenderLookup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OtherUsers" EntityType="Self.OtherUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PeerChat" EntityType="Self.PeerChat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RelationLookup" EntityType="Self.RelationLookup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchoolGroup" EntityType="Self.SchoolGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchoolMessage" EntityType="Self.SchoolMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Section" EntityType="Self.Section" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SectionLookup" EntityType="Self.SectionLookup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Standard" EntityType="Self.Standard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StandardLookup" EntityType="Self.StandardLookup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserChat" EntityType="Self.UserChat" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AdminMessage_AppUser" Association="Self.FK_AdminMessage_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AdminMessage" EntitySet="AdminMessage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUser_AppRole" Association="Self.FK_AppUser_AppRole">
+      <End Role="AppRole" EntitySet="AppRole" />
+      <End Role="AppUser" EntitySet="AppUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUser_GenderLookup" Association="Self.FK_AppUser_GenderLookup">
+      <End Role="GenderLookup" EntitySet="GenderLookup" />
+      <End Role="AppUser" EntitySet="AppUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Channel_AppUser" Association="Self.FK_Channel_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="Channel" EntitySet="Channel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_AppUser" Association="Self.FK_Child_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_ChildGenderLookup" Association="Self.FK_Child_ChildGenderLookup">
+      <End Role="ChildGenderLookup" EntitySet="ChildGenderLookup" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_Relation1" Association="Self.FK_Child_Relation1">
+      <End Role="RelationLookup" EntitySet="RelationLookup" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildSection_Child" Association="Self.FK_ChildSection_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="ChildSection" EntitySet="ChildSection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildSection_Section" Association="Self.FK_ChildSection_Section">
+      <End Role="Section" EntitySet="Section" />
+      <End Role="ChildSection" EntitySet="ChildSection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OtherUsers_UserChat" Association="Self.FK_OtherUsers_UserChat">
+      <End Role="UserChat" EntitySet="UserChat" />
+      <End Role="OtherUsers" EntitySet="OtherUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_School_City" Association="Self.FK_School_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="School" EntitySet="School" />
+    </AssociationSet>
+    <AssociationSet Name="FK_School_StandardLookup" Association="Self.FK_School_StandardLookup">
+      <End Role="StandardLookup" EntitySet="StandardLookup" />
+      <End Role="School" EntitySet="School" />
+    </AssociationSet>
+    <AssociationSet Name="FK_School_StandardLookup1" Association="Self.FK_School_StandardLookup1">
+      <End Role="StandardLookup" EntitySet="StandardLookup" />
+      <End Role="School" EntitySet="School" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SchoolMessage_AppUser" Association="Self.FK_SchoolMessage_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="SchoolMessage" EntitySet="SchoolMessage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SchoolMessage_School" Association="Self.FK_SchoolMessage_School">
+      <End Role="School" EntitySet="School" />
+      <End Role="SchoolMessage" EntitySet="SchoolMessage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Section_Standard" Association="Self.FK_Section_Standard">
+      <End Role="Standard" EntitySet="Standard" />
+      <End Role="Section" EntitySet="Section" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Standard_School" Association="Self.FK_Standard_School">
+      <End Role="School" EntitySet="School" />
+      <End Role="Standard" EntitySet="Standard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Token_AppUser" Association="Self.FK_Token_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="Token" EntitySet="Token" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserChat_AppUser" Association="Self.FK_UserChat_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="UserChat" EntitySet="UserChat" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

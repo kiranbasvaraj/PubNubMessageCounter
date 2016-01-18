@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TalkativeParentsModelStoreContainer" CdmEntityContainer="TalkativeParentsEntities">
+    <EntitySetMapping Name="AdminMessages">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.AdminMessage">
+        <MappingFragment StoreEntitySet="AdminMessage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="IsNotification" ColumnName="IsNotification" />
+          <ScalarProperty Name="IsMessage" ColumnName="IsMessage" />
+          <ScalarProperty Name="DateTimeSent" ColumnName="DateTimeSent" />
+          <ScalarProperty Name="Attachments" ColumnName="Attachments" />
+          <ScalarProperty Name="ShouldDelete" ColumnName="ShouldDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppRoles">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.AppRole">
+        <MappingFragment StoreEntitySet="AppRole">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="IsSchoolRole" ColumnName="IsSchoolRole" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUsers">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.AppUser">
+        <MappingFragment StoreEntitySet="AppUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="IsSchoolUser" ColumnName="IsSchoolUser" />
+          <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+          <ScalarProperty Name="IsFlagged" ColumnName="IsFlagged" />
+          <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="FirstLogin" ColumnName="FirstLogin" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="PreviousLogin" ColumnName="PreviousLogin" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="AdminNoticeBoardId" ColumnName="AdminNoticeBoardId" />
+          <ScalarProperty Name="IsProfilePicUploaded" ColumnName="IsProfilePicUploaded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Channels">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.Channel">
+        <MappingFragment StoreEntitySet="Channel">
+          <ScalarProperty Name="MessageCount" ColumnName="MessageCount" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ChannelType" ColumnName="ChannelType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UnreadCount" ColumnName="UnreadCount" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DeactivatedOn" ColumnName="DeactivatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Children">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.Child">
+        <MappingFragment StoreEntitySet="Child">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="RelationId" ColumnName="RelationId" />
+          <ScalarProperty Name="ChildRelation" ColumnName="ChildRelation" />
+          <ScalarProperty Name="ChildGenderId" ColumnName="ChildGenderId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChildGenderLookups">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.ChildGenderLookup">
+        <MappingFragment StoreEntitySet="ChildGenderLookup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChildSections">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.ChildSection">
+        <MappingFragment StoreEntitySet="ChildSection">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="ActivatedOn" ColumnName="ActivatedOn" />
+          <ScalarProperty Name="DeactivatedOn" ColumnName="DeactivatedOn" />
+          <ScalarProperty Name="ParentTag" ColumnName="ParentTag" />
+          <ScalarProperty Name="ParentChildTag" ColumnName="ParentChildTag" />
+          <ScalarProperty Name="ParentToParent" ColumnName="ParentToParent" />
+          <ScalarProperty Name="SchoolToEntireSchool" ColumnName="SchoolToEntireSchool" />
+          <ScalarProperty Name="SchoolToStandard" ColumnName="SchoolToStandard" />
+          <ScalarProperty Name="SchoolToSection" ColumnName="SchoolToSection" />
+          <ScalarProperty Name="SchoolToParent" ColumnName="SchoolToParent" />
+          <ScalarProperty Name="AdminToStandard" ColumnName="AdminToStandard" />
+          <ScalarProperty Name="AdminToSchool" ColumnName="AdminToSchool" />
+          <ScalarProperty Name="AdminToCity" ColumnName="AdminToCity" />
+          <ScalarProperty Name="AdminToState" ColumnName="AdminToState" />
+          <ScalarProperty Name="AdminToCountry" ColumnName="AdminToCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenderLookups">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.GenderLookup">
+        <MappingFragment StoreEntitySet="GenderLookup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OtherUsers">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.OtherUser">
+        <MappingFragment StoreEntitySet="OtherUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserChatId" ColumnName="UserChatId" />
+          <ScalarProperty Name="OtherUserId" ColumnName="OtherUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PeerChats">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.PeerChat">
+        <MappingFragment StoreEntitySet="PeerChat">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppUserId1" ColumnName="AppUserId1" />
+          <ScalarProperty Name="AppUserId2" ColumnName="AppUserId2" />
+          <ScalarProperty Name="ChatName" ColumnName="ChatName" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="EndedOn" ColumnName="EndedOn" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelationLookups">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.RelationLookup">
+        <MappingFragment StoreEntitySet="RelationLookup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schools">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.School">
+        <MappingFragment StoreEntitySet="School">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PrimaryPhone" ColumnName="PrimaryPhone" />
+          <ScalarProperty Name="SecondaryPhone" ColumnName="SecondaryPhone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="PrincipalName" ColumnName="PrincipalName" />
+          <ScalarProperty Name="StartingGrade" ColumnName="StartingGrade" />
+          <ScalarProperty Name="EndingGrade" ColumnName="EndingGrade" />
+          <ScalarProperty Name="SchoolEndMonth" ColumnName="SchoolEndMonth" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="HasSections" ColumnName="HasSections" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchoolGroups">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.SchoolGroup">
+        <MappingFragment StoreEntitySet="SchoolGroup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PrimaryPhone" ColumnName="PrimaryPhone" />
+          <ScalarProperty Name="SecondaryPhone" ColumnName="SecondaryPhone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchoolMessages">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.SchoolMessage">
+        <MappingFragment StoreEntitySet="SchoolMessage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SchoolUserId" ColumnName="SchoolUserId" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="IsEntireSchool" ColumnName="IsEntireSchool" />
+          <ScalarProperty Name="IsParticularClass" ColumnName="IsParticularClass" />
+          <ScalarProperty Name="IsParticularSection" ColumnName="IsParticularSection" />
+          <ScalarProperty Name="Classes" ColumnName="Classes" />
+          <ScalarProperty Name="Sections" ColumnName="Sections" />
+          <ScalarProperty Name="DateTimeSent" ColumnName="DateTimeSent" />
+          <ScalarProperty Name="Attachments" ColumnName="Attachments" />
+          <ScalarProperty Name="ShouldDelete" ColumnName="ShouldDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.Section">
+        <MappingFragment StoreEntitySet="Section">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ClassTeacherId" ColumnName="ClassTeacherId" />
+          <ScalarProperty Name="StandardId" ColumnName="StandardId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SectionLookups">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.SectionLookup">
+        <MappingFragment StoreEntitySet="SectionLookup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Standards">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.Standard">
+        <MappingFragment StoreEntitySet="Standard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StandardLookups">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.StandardLookup">
+        <MappingFragment StoreEntitySet="StandardLookup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ShowSequence" ColumnName="ShowSequence" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tokens">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.Token">
+        <MappingFragment StoreEntitySet="Token">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+          <ScalarProperty Name="TTL" ColumnName="TTL" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DeactivatedOn" ColumnName="DeactivatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserChats">
+      <EntityTypeMapping TypeName="TalkativeParentsModel.UserChat">
+        <MappingFragment StoreEntitySet="UserChat">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
