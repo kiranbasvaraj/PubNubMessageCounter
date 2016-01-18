@@ -5,4 +5,4 @@ Getting history from Storage will just give you the messages themselves. The max
 Here’s a KB article that outlines this: https://www.pubnub.com/knowledge-base/discussion/194/how-do-i-page-through-stored-messages
 And the history call for C# example is here: https://www.pubnub.com/docs/c-sharp-dot-net-c-sharp/storage-and-history
 
-P.S. Remember that every message retrieved by history is counted towards the messages per month for the account.
+*P.S. Remember that every message retrieved by history is counted towards the messages per month for the account.*
